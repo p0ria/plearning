@@ -1,8 +1,7 @@
+
 import Head from "next/head";
-import { useEffect } from "react";
-import { ThemeProvider } from "styled-components";
-import { GlobalStyle } from "../shared/styles";
-import { theme } from "../shared/theme";
+import React, { useEffect } from "react";
+import ThemeProvider from "../shared/ThemeProvider";
 import { removeMuiDuplicateStyle } from "../utils/dom-utils";
 
 
@@ -12,8 +11,7 @@ export default function MyApp({ Component, pageProps }) {
   }, [])
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle theme={theme} />
+    <ThemeProvider>
       <Head>
         <title>PLearning</title>
       </Head>

@@ -1,11 +1,23 @@
-export const theme = {
-  fonts: {
-    basic: "Helvetica, sans-serif",
-    accent: '"Permanent Marker", cursive',
+import { createMuiTheme } from "@material-ui/core";
+
+const commonTheme: Theme = {
+  typography: {
+    fontFamily: "'Yekan', 'Arial', sans-serif",
   },
-  colors: {
-    orange: "#f4ae40",
-    blue: "#387af5",
-    pink: "#eb57a3",
+} as Theme;
+
+export const lightTheme = createMuiTheme({
+  ...commonTheme,
+  palette: {
+    type: "light",
   },
-};
+});
+
+export const darkTheme = createMuiTheme({
+  ...commonTheme,
+  palette: {
+    type: "dark",
+  },
+});
+
+export type Theme = typeof lightTheme;
