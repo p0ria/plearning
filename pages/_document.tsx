@@ -1,16 +1,21 @@
 import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
-import { ServerStyleSheet } from 'styled-components';
+import { ServerStyleSheet as StyledComponentSheet } from 'styled-components';
+import { ServerStyleSheets as MaterialUiSheet } from '@material-ui/core/styles';
 
 export default class MyDocument extends Document {
     render() {
         const description = 'The Next generation of programming websites'
-        const fontsUrl = "https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
+        const permanentfontUrl = 'https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap'
+        const robotoFontUrl = 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap'
+        const materialFontIconUrl = 'https://fonts.googleapis.com/icon?family=Material+Icons';
 
         return (
             <Html>
                 <Head>
                     <meta name="description" content={description} />
-                    <link href={fontsUrl} rel="stylesheet" />
+                    <link rel="stylesheet" href={permanentfontUrl} />
+                    <link rel="stylesheet" href={robotoFontUrl} />
+                    <link rel="stylesheet" href={materialFontIconUrl} />
                     {this.props.styles}
                 </Head>
 
@@ -23,13 +28,16 @@ export default class MyDocument extends Document {
     }
 
     static async getInitialProps(ctx: DocumentContext) {
-        const sheet = new ServerStyleSheet()
+        const styledComponentSheet = new StyledComponentSheet()
+        const materialUiSheet = new MaterialUiSheet()
         const originalRenderPage = ctx.renderPage
 
         try {
             ctx.renderPage = () =>
                 originalRenderPage({
-                    enhanceApp: App => props => sheet.collectStyles(<App {...props} />)
+                    enhanceApp: App => props => styledComponentSheet.collectStyles(
+                        materialUiSheet.collect(<App {...props} />)
+                    )
                 })
 
             const initialProps = await Document.getInitialProps(ctx)
@@ -39,12 +47,13 @@ export default class MyDocument extends Document {
                 styles: (
                     <>
                         {initialProps.styles}
-                        {sheet.getStyleElement()}
+                        {materialUiSheet.getStyleElement()}
+                        {styledComponentSheet.getStyleElement()}
                     </>
                 )
             }
         } finally {
-            sheet.seal()
+            styledComponentSheet.seal()
         }
     }
 }
