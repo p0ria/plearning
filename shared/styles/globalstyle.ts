@@ -1,11 +1,11 @@
 import { createGlobalStyle, ThemeProps } from "styled-components";
-import { theme } from "../theme";
+import { Theme } from "../theme";
 
-export type MainThemeProps = ThemeProps<typeof theme>;
+export type MainThemeProps = ThemeProps<Theme>;
 export const GlobalStyle = createGlobalStyle<MainThemeProps>`
     body {
         margin: 0;
-        font-family: ${({ theme }) => theme.fonts.basic};
+        font-family: ${({ theme }) => theme.typography.fontFamily};
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
@@ -21,12 +21,20 @@ export const GlobalStyle = createGlobalStyle<MainThemeProps>`
     }
 
     a {
-        color: ${({ theme }) => theme.colors.blue};
+        color: ${({ theme }) => theme.palette.action.active};
         text-decoration: none;
         cursor: pointer;
         &:hover {
-            color: ${({ theme }) => theme.colors.pink};
+            color: ${({ theme }) => theme.palette.action.hover};
             text-decoration: underline;
         }
+    }
+
+    .en {
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
+    }
+
+    .fd {
+        font-family: "SamimFD", "Arial", sans-serif !important;
     }
 `;

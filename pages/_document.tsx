@@ -5,15 +5,17 @@ import { ServerStyleSheets as MaterialUiSheet } from '@material-ui/core/styles';
 export default class MyDocument extends Document {
     render() {
         const description = 'The Next generation of programming websites'
-        const permanentfontUrl = 'https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap'
+        const yekanFontUrl = './fonts/yekan/style.css'
+        const samimFontUrl = './fonts/samim/style.css'
         const robotoFontUrl = 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap'
         const materialFontIconUrl = 'https://fonts.googleapis.com/icon?family=Material+Icons';
 
         return (
-            <Html>
+            <Html dir="rtl">
                 <Head>
                     <meta name="description" content={description} />
-                    <link rel="stylesheet" href={permanentfontUrl} />
+                    <link rel="stylesheet" href={yekanFontUrl} />
+                    <link rel="stylesheet" href={samimFontUrl} />
                     <link rel="stylesheet" href={robotoFontUrl} />
                     <link rel="stylesheet" href={materialFontIconUrl} />
                     {this.props.styles}
