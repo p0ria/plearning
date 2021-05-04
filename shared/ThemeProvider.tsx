@@ -2,7 +2,7 @@ import { CssBaseline, ThemeProvider as MuiThemeProvider } from "@material-ui/cor
 import React, { createContext, useEffect, useState } from "react";
 import { ThemeProvider as StyledComponentThemeProvider } from "styled-components";
 import { constants } from "./constants";
-import { GlobalStyle } from "./styles/GlobalStyle";
+import { GlobalStyle } from "./GlobalStyle";
 import { darkTheme, lightTheme } from "./theme";
 
 export const ThemeContext = createContext(null);
