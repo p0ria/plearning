@@ -1,11 +1,13 @@
 
+import { AppProps } from "next/app";
 import Head from "next/head";
-import React, { useEffect } from "react";
+import React, { FC, useEffect } from "react";
 import ThemeProvider from "../shared/ThemeProvider";
+import store from "../state/store";
 import { removeMuiDuplicateStyle } from "../utils/dom-utils";
 
 
-export default function MyApp({ Component, pageProps }) {
+const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
   useEffect(() => {
     removeMuiDuplicateStyle()
   }, [])
@@ -19,3 +21,5 @@ export default function MyApp({ Component, pageProps }) {
     </ThemeProvider>
   )
 }
+
+export default store.withRedux(MyApp);
