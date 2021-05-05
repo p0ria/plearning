@@ -1,3 +1,4 @@
+import { getUsername } from './app.effects';
 import { RootState } from "./../store";
 import { createSlice } from "@reduxjs/toolkit";
 import { hydrate } from "../root.actions";
@@ -16,11 +17,14 @@ export const appState = createSlice({
   },
   extraReducers(builder) {
     builder.addCase(hydrate, (state, action) => {
-      console.log("HYDRATE", state, action);
       return {
         ...state,
         ...action.payload.app,
       };
     });
+    builder.addCase(getUsername.fulfilled, (state, { payload }) => {
+      console.log('getUsername reducer', payload)
+      state.username = payload;
+    })
   },
 });
