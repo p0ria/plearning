@@ -1,32 +1,39 @@
-import { Button, Typography } from "@material-ui/core";
-import React, { useEffect } from "react";
-import Header from "../components/Header/Header";
-import Link from "next/link";
-import store, { RootState } from "../state/store";
-import { AppState, appState } from "../state/app/app.state";
-import { useDispatch, useSelector } from "react-redux";
-import { getUsername } from "../state/app/app.effects";
+import { Card, Container } from "@material-ui/core";
 import { motion } from "framer-motion";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Header from "../components/Header/Header";
+import dbConnect from "../db/db-connect";
+import { getAllCategories } from "../db/repositories/category.repository";
+import CategoryDto from "../dtos/category.dto";
+import { getUsername } from "../state/app/app.effects";
+import { categoryState } from "../state/category/category.state";
+import store, { RootState } from "../state/store";
 
 export default function Home() {
-  const appState = useSelector<RootState, AppState>(state => state.app)
-  const dispatch = useDispatch();
+  const categories = useSelector<RootState, CategoryDto[]>(state => state.category.categories || [])
 
-  useEffect(() => {
-    dispatch(getUsername())
-  }, [])
   return (
     <motion.div initial={{ y: -200 }} animate={{ y: 0, transition: { duration: .3 } }}>
       <Header />
-      <Link href="/a"><a>Go to A by Link</a></Link>
-      <a href="/a"> Go to A by anchor element</a>
-      <Typography variant="h1" className="en">Hello</Typography>
-      <Typography variant="h2">سلام روز بخیر <span className="fd">123</span></Typography>
-      <Button variant="contained" className="en" color="primary">Hello World</Button>
+      <Container>
+        {
+          categories.map(category => (
+            <Card key={category.id} style={{ marginTop: '16px', width: '200px', padding: '32px', textAlign: 'center' }}>
+              <i className={category.icon.value} />
+            </Card>
+          ))
+        }
+      </Container>
+
     </motion.div>
   )
 }
 
-export const getServerSideProps = store.getServerSideProps(({ store }) => {
-  console.log('INSIDE Home getServerSideProps')
+export const getServerSideProps = store.getServerSideProps(async ({ store }) => {
+  await dbConnect();
+
+  const categories = await getAllCategories()
+  store.dispatch(categoryState.actions.setCategories(categories))
 });
+

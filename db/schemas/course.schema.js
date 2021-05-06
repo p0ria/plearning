@@ -5,9 +5,14 @@ const CourseSchema = new mongoose.Schema({
     records: [
         {
             title: { type: mongoose.SchemaTypes.String, required: true },
-            imageUrl: { type: mongoose.SchemaTypes.String, required: true }
+            imageUrl: { type: mongoose.SchemaTypes.String, required: true },
+            videoUrl: { type: mongoose.SchemaTypes.String, required: true },
         }
-    ]
-})
+    ],
+    createdAt: { type: Date, default: Date.now },
+    updatedAt: { type: Date, default: Date.now }
+}, { timestamps: true })
 
-export default mongoose.models.Course || mongoose.model('Course', CourseSchema)
+const Course = mongoose.models.Course || mongoose.model('Course', CourseSchema)
+
+export default Course
