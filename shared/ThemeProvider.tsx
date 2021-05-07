@@ -1,5 +1,5 @@
 import { CssBaseline, ThemeProvider as MuiThemeProvider } from "@material-ui/core";
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useLayoutEffect, useState } from "react";
 import { ThemeProvider as StyledComponentThemeProvider } from "styled-components";
 import { constants } from "./constants";
 import { GlobalStyle } from "./GlobalStyle";
@@ -11,7 +11,7 @@ export default function ThemeProvider({ children }) {
   const [isDarkTheme, setIsDarkTheme] = useState(false)
   const [theme, setTheme] = useState(isDarkTheme ? darkTheme : lightTheme)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setIsDarkTheme(localStorage.getItem(constants.theme) === 'dark')
   }, [])
 

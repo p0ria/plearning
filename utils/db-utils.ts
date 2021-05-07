@@ -1,13 +1,13 @@
-export const toDto = obj => {
+export const toDto = <TResult>(obj): TResult => {
     let newObj = {}
     Object.keys(obj).forEach(key => {
         if (key === '__v') return
         let value = obj[key]
         if (value !== null && value !== undefined) {
-            if (key === '_id') value = String(value)
+            if (value === '_id') value = String(value)
             // If array, loop...
             if (Array.isArray(value)) {
-                value = value.map(item => dateStripped(item))
+                value = value.map(item => toDto(item))
             }
             else if (typeof value === 'object' && typeof value.getMonth === 'function') {
                 value = JSON.parse(JSON.stringify(value))
@@ -21,5 +21,5 @@ export const toDto = obj => {
         if (key == '_id') key = 'id'
         newObj[key] = value
     })
-    return newObj
+    return newObj as TResult;
 }

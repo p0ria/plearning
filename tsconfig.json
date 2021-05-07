@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "db/schemas/category.schema.js", "db/schemas/course.schema.js", "utils/dom-utils.js", "utils/db-utils.js"  ],
+, "db/schemas/category.schema.js", "db/schemas/course.schema.js", "utils/dom-utils.js", "utils/db-utils.ts"  ],
   "exclude": [
     "node_modules"
   ]
