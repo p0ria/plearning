@@ -1,14 +1,8 @@
 import mongoose from 'mongoose'
 
-const CourseSchema = new mongoose.Schema({
-    title: { type: mongoose.SchemaTypes.String, required: true, index: true },
-    records: [
-        {
-            title: { type: mongoose.SchemaTypes.String, required: true },
-            imageUrl: { type: mongoose.SchemaTypes.String, required: true },
-            videoUrl: { type: mongoose.SchemaTypes.String, required: true },
-        }
-    ],
+export const CourseSchema = new mongoose.Schema({
+    title: { type: String, required: true, index: true },
+    records: [{ type: mongoose.SchemaTypes.ObjectId, ref: "Course" }],
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now }
 }, { timestamps: true })

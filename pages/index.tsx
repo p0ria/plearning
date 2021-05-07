@@ -1,12 +1,11 @@
 import { Card, Container } from "@material-ui/core";
 import { motion } from "framer-motion";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import Header from "../components/Header/Header";
 import dbConnect from "../db/db-connect";
 import { getAllCategories } from "../db/repositories/category.repository";
 import CategoryDto from "../dtos/category.dto";
-import { getUsername } from "../state/app/app.effects";
 import { categoryState } from "../state/category/category.state";
 import store, { RootState } from "../state/store";
 

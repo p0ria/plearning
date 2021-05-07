@@ -2,10 +2,10 @@ import mongoose from 'mongoose'
 import { IconType } from '../../dtos/icon.dto';
 
 export const CategorySchema = new mongoose.Schema({
-    title: { type: mongoose.SchemaTypes.String, required: true, index: true, unique: true },
+    title: { type: String, required: true, index: true, unique: true },
     icon: {
-        type: { type: mongoose.SchemaTypes.String, enum: [IconType.Icon, IconType.Image] },
-        value: mongoose.SchemaTypes.String
+        type: { type: String, enum: [IconType.Icon, IconType.Image] },
+        value: String
     },
     courses: [{ type: mongoose.SchemaTypes.ObjectId, ref: "Course" }],
     createdAt: { type: Date, default: Date.now },

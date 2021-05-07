@@ -4,7 +4,7 @@ export const toDto = <TResult>(obj): TResult => {
         if (key === '__v') return
         let value = obj[key]
         if (value !== null && value !== undefined) {
-            if (value === '_id') value = String(value)
+            if (key === '_id') value = String(value)
             // If array, loop...
             if (Array.isArray(value)) {
                 value = value.map(item => toDto(item))
