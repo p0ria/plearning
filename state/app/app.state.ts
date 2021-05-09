@@ -3,16 +3,16 @@ import { RootState } from "./../store";
 import { createSlice } from "@reduxjs/toolkit";
 import { hydrate } from "../root.actions";
 
-export type AppState = RootState["app"];
+export type AppState = RootState[typeof appState.name]
 
 export const appState = createSlice({
   name: "app",
   initialState: {
-    username: null,
+    username: null
   },
   reducers: {
     setUsername(state, action) {
-      state.username = action.payload;
+      state.username = action.payload
     },
   },
   extraReducers(builder) {
@@ -20,11 +20,11 @@ export const appState = createSlice({
       return {
         ...state,
         ...action.payload.app,
-      };
-    });
+      }
+    })
     builder.addCase(getUsername.fulfilled, (state, { payload }) => {
       console.log('getUsername reducer', payload)
-      state.username = payload;
+      state.username = payload
     })
   },
-});
+})

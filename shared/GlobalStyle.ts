@@ -37,4 +37,8 @@ export const GlobalStyle = createGlobalStyle<MainThemeProps>`
     .fd {
         font-family: "SamimFD", "Arial", sans-serif !important;
     }
+
+    [class^="devicon-"] {
+        font-size: 5rem;
+      }
 `;

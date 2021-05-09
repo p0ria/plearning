@@ -9,6 +9,7 @@ export default class MyDocument extends Document {
         const samimFontUrl = './fonts/samim/style.css'
         const robotoFontUrl = 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap'
         const materialFontIconUrl = 'https://fonts.googleapis.com/icon?family=Material+Icons';
+        const devIconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.11.0/devicon.min.css'
 
         return (
             <Html dir="rtl">
@@ -18,6 +19,7 @@ export default class MyDocument extends Document {
                     <link rel="stylesheet" href={samimFontUrl} />
                     <link rel="stylesheet" href={robotoFontUrl} />
                     <link rel="stylesheet" href={materialFontIconUrl} />
+                    <link rel="stylesheet" href={devIconUrl} />
                     {this.props.styles}
                 </Head>
 

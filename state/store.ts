@@ -1,9 +1,11 @@
+import { categoryState } from './category/category.state';
 import { configureStore } from "@reduxjs/toolkit";
 import { createWrapper } from "next-redux-wrapper";
 import { appState } from "./app/app.state";
 
 export const rootReducer = {
   [appState.name]: appState.reducer,
+  [categoryState.name]: categoryState.reducer
 };
 
 const makeStore = () =>

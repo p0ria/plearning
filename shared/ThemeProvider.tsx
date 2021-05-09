@@ -1,6 +1,7 @@
 import { CssBaseline, ThemeProvider as MuiThemeProvider } from "@material-ui/core";
 import React, { createContext, useEffect, useState } from "react";
 import { ThemeProvider as StyledComponentThemeProvider } from "styled-components";
+import useIsomorphicLayoutEffect from "../hooks/useIsomorphicLayoutEffect";
 import { constants } from "./constants";
 import { GlobalStyle } from "./GlobalStyle";
 import { darkTheme, lightTheme } from "./theme";
@@ -11,7 +12,7 @@ export default function ThemeProvider({ children }) {
   const [isDarkTheme, setIsDarkTheme] = useState(false)
   const [theme, setTheme] = useState(isDarkTheme ? darkTheme : lightTheme)
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     setIsDarkTheme(localStorage.getItem(constants.theme) === 'dark')
   }, [])
 
