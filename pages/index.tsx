@@ -4,8 +4,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 import Header from "../components/Header/Header";
 import dbConnect from "../db/db-connect";
-import { getAllCategories } from "../db/repositories/category.repository";
+import { createCategory, getAllCategories } from "../db/repositories/category.repository";
 import CategoryDto from "../dtos/category.dto";
+import { IconType } from "../dtos/icon.dto";
 import { categoryState } from "../state/category/category.state";
 import store, { RootState } from "../state/store";
 
@@ -32,6 +33,7 @@ export default function Home() {
 export const getServerSideProps = store.getServerSideProps(async ({ store }) => {
   await dbConnect();
 
+  //createCategory({ title: 'Babel', icon: { type: IconType.Icon, value: 'devicon-babel-plain colored' } })
   const categories = await getAllCategories()
   store.dispatch(categoryState.actions.setCategories(categories))
 });
