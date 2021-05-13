@@ -24,7 +24,6 @@ export default function Home() {
           ))
         }
       </Container>
-
     </motion.div>
   )
 }
