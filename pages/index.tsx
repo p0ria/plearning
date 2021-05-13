@@ -29,7 +29,7 @@ export default function Home() {
   )
 }
 
-export const getServerSideProps = store.getServerSideProps(async ({ store }) => {
+export const getServerSideProps = store.getStaticProps(async ({ store }) => {
   await dbConnect();
 
   // const course = await new Course({
