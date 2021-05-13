@@ -1,25 +1,16 @@
-export const toDto = <TResult>(obj): TResult => {
-    let newObj = {}
-    Object.keys(obj).forEach(key => {
-        if (key === '__v') return
-        let value = obj[key]
-        if (value !== null && value !== undefined) {
-            if (key === '_id') value = String(value)
-            // If array, loop...
-            if (Array.isArray(value)) {
-                value = value.map(item => toDto(item))
-            }
-            else if (typeof value === 'object' && typeof value.getMonth === 'function') {
-                value = JSON.parse(JSON.stringify(value))
-            }
-            else if (typeof value === 'object') {
-                value = toDto(value)
-            }
-        } else {
-            value = null
+import { isObject } from "./object-utils";
+
+export function toDto<TResult>(obj): TResult {
+    obj = JSON.parse(JSON.stringify(obj))
+    Object.entries(obj).forEach(([key, value]) => {
+        if (Array.isArray(value)) {
+            if (value.length > 0) obj[key] = value.map(val => toDto(val))
         }
-        if (key == '_id') key = 'id'
-        newObj[key] = value
+        else if (isObject(value)) {
+            obj[key] = toDto(value)
+        }
     })
-    return newObj as TResult;
+
+    const { _id: id, __v, ...others } = obj;
+    return id ? { id, ...others } : { ...others };
 }

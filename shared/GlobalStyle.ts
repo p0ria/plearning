@@ -20,6 +20,10 @@ export const GlobalStyle = createGlobalStyle<MainThemeProps>`
         margin: 0;
     }
 
+    button:focus {
+        outline: none;
+    }
+
     a {
         color: ${({ theme }) => theme.palette.action.active};
         text-decoration: none;
