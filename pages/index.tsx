@@ -24,7 +24,6 @@ export default function Home() {
           ))
         }
       </Container>
-      <button className="hover:ring-4 hover:ring-red-500">Hi</button>
 
     </motion.div>
   )

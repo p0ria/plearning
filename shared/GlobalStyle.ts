@@ -5,7 +5,7 @@ export type MainThemeProps = ThemeProps<Theme>;
 export const GlobalStyle = createGlobalStyle<MainThemeProps>`
     body {
         margin: 0;
-        font-family: ${({ theme }) => theme.typography.fontFamily};
+        font-family: ${({ theme }) => theme.typography.fontFamily}, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
@@ -36,10 +36,6 @@ export const GlobalStyle = createGlobalStyle<MainThemeProps>`
 
     .en {
         font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
-    }
-
-    .fd {
-        font-family: "SamimFD", "Arial", sans-serif !important;
     }
 
     [class^="devicon-"] {
