@@ -5,7 +5,7 @@ import { ServerStyleSheets as MaterialUiSheet } from '@material-ui/core/styles';
 export default class MyDocument extends Document {
     render() {
         const description = 'The Next generation of programming websites'
-        const yekanFontUrl = 'https://cdn.jsdelivr.net/npm/yekan-font@1.0.0/css/yekan-font.min.css&display=swap'
+        const yekanFontUrl = 'https://cdn.jsdelivr.net/npm/yekan-font@1.0.0/css/yekan-font.min.css'
         const robotoFontUrl = 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap'
         const materialFontIconUrl = 'https://fonts.googleapis.com/icon?family=Material+Icons&display=swap';
         const devIconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.11.0/devicon.min.css'
@@ -14,10 +14,10 @@ export default class MyDocument extends Document {
             <Html dir="rtl">
                 <Head>
                     <meta name="description" content={description} />
-                    <link rel="preload" as="style" href={yekanFontUrl} />
-                    <link rel="preload" as="style" href={robotoFontUrl} />
-                    <link rel="preload" as="style" href={materialFontIconUrl} />
-                    <link rel="preload" as="style" href={devIconUrl} />
+                    <link rel="stylesheet" href={yekanFontUrl} />
+                    <link rel="preload" href={robotoFontUrl} as="style" />
+                    <link rel="preload" href={materialFontIconUrl} as="style" />
+                    <link rel="stylesheet" href={devIconUrl} />
                     {this.props.styles}
                 </Head>
 
