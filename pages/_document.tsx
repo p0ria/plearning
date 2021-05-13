@@ -14,10 +14,10 @@ export default class MyDocument extends Document {
             <Html dir="rtl">
                 <Head>
                     <meta name="description" content={description} />
-                    <link rel="stylesheet" href={yekanFontUrl} />
-                    <link rel="stylesheet" href={robotoFontUrl} />
-                    <link rel="stylesheet" href={materialFontIconUrl} />
-                    <link rel="stylesheet" href={devIconUrl} />
+                    <link rel="preload" as="style" href={yekanFontUrl} />
+                    <link rel="preload" as="style" href={robotoFontUrl} />
+                    <link rel="preload" as="style" href={materialFontIconUrl} />
+                    <link rel="preload" as="style" href={devIconUrl} />
                     {this.props.styles}
                 </Head>
 
