@@ -5,9 +5,9 @@ import { ServerStyleSheets as MaterialUiSheet } from '@material-ui/core/styles';
 export default class MyDocument extends Document {
     render() {
         const description = 'The Next generation of programming websites'
-        const yekanFontUrl = 'https://cdn.jsdelivr.net/npm/yekan-font@1.0.0/css/yekan-font.min.css'
+        const yekanFontUrl = 'https://cdn.jsdelivr.net/npm/yekan-font@1.0.0/css/yekan-font.min.css&display=swap'
         const robotoFontUrl = 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap'
-        const materialFontIconUrl = 'https://fonts.googleapis.com/icon?family=Material+Icons';
+        const materialFontIconUrl = 'https://fonts.googleapis.com/icon?family=Material+Icons&display=swap';
         const devIconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.11.0/devicon.min.css'
 
         return (
