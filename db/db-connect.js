@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import('./schemas')
 
 const DB_URL = process.env.DB_URL
 
