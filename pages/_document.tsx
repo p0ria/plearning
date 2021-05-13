@@ -6,7 +6,6 @@ export default class MyDocument extends Document {
     render() {
         const description = 'The Next generation of programming websites'
         const yekanFontUrl = 'https://cdn.jsdelivr.net/npm/yekan-font@1.0.0/css/yekan-font.min.css'
-        const samimFontUrl = './fonts/samim/style.css'
         const robotoFontUrl = 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap'
         const materialFontIconUrl = 'https://fonts.googleapis.com/icon?family=Material+Icons';
         const devIconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.11.0/devicon.min.css'
@@ -16,7 +15,6 @@ export default class MyDocument extends Document {
                 <Head>
                     <meta name="description" content={description} />
                     <link rel="stylesheet" href={yekanFontUrl} />
-                    <link rel="stylesheet" href={samimFontUrl} />
                     <link rel="stylesheet" href={robotoFontUrl} />
                     <link rel="stylesheet" href={materialFontIconUrl} />
                     <link rel="stylesheet" href={devIconUrl} />
