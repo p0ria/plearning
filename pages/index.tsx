@@ -1,4 +1,4 @@
-import { Card, Container } from "@material-ui/core";
+import { Card, Container, Typography } from "@material-ui/core";
 import { motion } from "framer-motion";
 import React from "react";
 import { useSelector } from "react-redux";
@@ -24,7 +24,7 @@ export default function Home() {
           ))
         }
       </Container>
-
+      <Typography>سلام چطوری؟</Typography>
     </motion.div>
   )
 }
