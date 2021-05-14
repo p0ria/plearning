@@ -1,7 +1,7 @@
 import { CourseDto } from "./course.dto"
 import IconDto from "./icon.dto"
 
-export default class CategoryDto {
+export class CategoryDto {
     id: string
     title: string
     icon: IconDto
@@ -9,3 +9,5 @@ export default class CategoryDto {
     createdAt: string
     updatedAt: string
 }
+
+export type CategoryCreateDto = Pick<CategoryDto, 'title' | 'icon'>;

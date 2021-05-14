@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import Header from "../components/Header/Header";
 import dbConnect from "../db/db-connect";
 import { getAllCategories } from "../db/repositories/category.repository";
-import CategoryDto from "../dtos/category.dto";
+import { CategoryDto } from "../dtos/category.dto";
 import { categoryState } from "../state/category/category.state";
 import store, { RootState } from "../state/store";
 
@@ -44,7 +44,7 @@ export const getServerSideProps = store.getStaticProps(async ({ store }) => {
   //   },
   //   courses: [course]
   // })
-  const categories = await getAllCategories("courses")
+  const categories = await getAllCategories()
   store.dispatch(categoryState.actions.setCategories(categories))
 });
 

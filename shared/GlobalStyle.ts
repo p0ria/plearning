@@ -24,16 +24,6 @@ export const GlobalStyle = createGlobalStyle<MainThemeProps>`
         outline: none;
     }
 
-    a {
-        color: ${({ theme }) => theme.palette.action.active};
-        text-decoration: none;
-        cursor: pointer;
-        &:hover {
-            color: ${({ theme }) => theme.palette.action.hover};
-            text-decoration: underline;
-        }
-    }
-
     .en {
         font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
     }

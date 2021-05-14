@@ -21,7 +21,7 @@ export default class MyDocument extends Document {
                     {this.props.styles}
                 </Head>
 
-                <body>
+                <body dir="rtl">
                     <Main />
                     <NextScript />
                 </body>

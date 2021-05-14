@@ -1,3 +1,4 @@
+import { createCategoryAction } from './category.effect';
 import { hydrate } from './../root.actions';
 import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from './../store';
@@ -20,6 +21,10 @@ export const categoryState = createSlice({
                 ...state,
                 ...action.payload.category
             }
-        })
+        }),
+            builder.addCase(createCategoryAction.fulfilled, (state, { payload }) => {
+                console.log('getUsername reducer', payload)
+                state.categories.push(payload)
+            })
     }
 })

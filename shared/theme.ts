@@ -1,6 +1,7 @@
 import { createMuiTheme } from "@material-ui/core";
 
 const commonTheme: Theme = {
+  direction: 'rtl',
   typography: {
     fontFamily: "'Yekan', 'Arial', sans-serif",
   },
@@ -9,7 +10,7 @@ const commonTheme: Theme = {
 export const lightTheme = createMuiTheme({
   ...commonTheme,
   palette: {
-    type: "light",
+    type: "light"
   },
 });
 

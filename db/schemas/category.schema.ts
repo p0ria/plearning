@@ -12,6 +12,6 @@ export const CategorySchema = new mongoose.Schema({
     updatedAt: { type: Date, default: Date.now }
 }, { timestamps: true })
 
-const Category = mongoose.models.Category || mongoose.model('Category', CategorySchema);
+const Category = mongoose.models.Category || mongoose.model('Category', CategorySchema)
 
 export default Category
